@@ -11,6 +11,8 @@ export default function App() {
   const [triggerSearch, setTriggerSearch] = useState(false);
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
 
+  const WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY
+
   const handleSearch = () => {
     if (city.trim() === '') {
       return;
@@ -38,7 +40,7 @@ export default function App() {
   useEffect(() => {
     if (!triggerSearch) return;
 
-    fetch(`https://api.weatherapi.com/v1/current.json?key=291503964c404753b08222136240406&q=${city}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${city}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Aucune ville ne correspond');

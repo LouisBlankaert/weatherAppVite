@@ -1,6 +1,8 @@
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyAHfASf9BN76fm0pvBEnw_Ga-n2MMc52HQ'; // Remplacez par votre clé API Google Maps
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY; // Remplacez par votre clé API Google Maps
+
+console.log('Google Maps API Key:', GOOGLE_MAPS_API_KEY);
 
 export default function Map({ coordinates }) {
   return (
